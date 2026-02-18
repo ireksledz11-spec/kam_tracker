@@ -2,3 +2,4 @@ pandas
 plotly
 xlsxwriter
 chardet
+st-gsheets-connection
