@@ -87,8 +87,8 @@ if not df.empty:
     total_curr = df['Sprzedaz_Current'].sum()
     growth = ((total_curr / total_ly) - 1) * 100 if total_ly > 0 else 0
     c1, c2, c3 = st.columns(3)
-    c1.metric("Baza (Rok Poprzedni)", f"{total_ly:,.2f} zł")
-    c2.metric("Sprzedaż Bieżąca", f"{total_curr:,.2f} zł", delta=f"{total_curr - total_ly:,.2f} zł")
+    c1.metric("Baza (Rok Poprzedni)", f"{total_ly:,.2f} T")
+    c2.metric("Sprzedaż Bieżąca", f"{total_curr:,.2f} T", delta=f"{total_curr - total_ly:,.2f} T")
     c3.metric("Wydajność KAM (YoY)", f"{growth:.1f}%")
 
     # 1. WYKRES GŁÓWNY (Oddziały)
@@ -127,4 +127,5 @@ if not df.empty:
     st.download_button(label="📥 Pobierz Raport Excel", data=excel_file.getvalue(),
                        file_name=f"Raport_KAM_{datetime.now().strftime('%d_%m')}.xlsx")
 else:
+
     st.info("💡 Brak danych. Dodaj klienta w panelu bocznym.")
